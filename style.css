@@ -143,7 +143,6 @@ html, body {
     height: 100vh;
     display: flex;
     background-color: #0f0f0f;
-    pointer-events: none;
     transform-style: preserve-3d;
     perspective: 1000px;
 }
@@ -198,7 +197,7 @@ html, body {
 .socials .sub-col {
     flex: 1;
 }
-.socials .sub-col p {
+.socials .sub-col p, .sub-col span {
     position: relative;
     color: #fff;
     /* transform: translateY(30px);
@@ -207,6 +206,14 @@ html, body {
     font-family: var(--default-font);
     font-size: 12px;
     font-weight: 400;
+}
+.social-media p{
+    transform: all 0.3s ease;
+    cursor: pointer;
+    width: 30%;
+}
+.social-media p:hover {
+    opacity: 0.6;
 }
 
 .header h1 {
@@ -223,4 +230,26 @@ html, body {
     display: inline-block;
     transform: scale(0.75) translateY(500px) rotateY(90deg);
     transform-origin: bottom;
+}
+
+@media (max-width: 786px) {
+    .col-1 {
+        flex: 2;
+        align-items: flex-start;
+    }
+    .link a {
+        font-size: 30px;
+    }
+    .video-wrapper {
+        padding: 0.3em; 
+    }
+    .socials {
+        width: 100%;
+        flex-direction: column;
+        gap: 1em;
+    }
+    .header h1 {
+        font-size: 150px;
+        height: 120px;
+    }
 }
