@@ -145,6 +145,7 @@ html, body {
     background-color: #0f0f0f;
     transform-style: preserve-3d;
     perspective: 1000px;
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
 }
 
 .col {
@@ -164,8 +165,8 @@ html, body {
 }
 .link {
     position: relative;
-    /* transform: translateY(30px);
-    opacity: 0; */
+    transform: translateY(30px);
+    opacity: 0;
 }
 .link a {
     text-decoration: none;
@@ -181,7 +182,7 @@ html, body {
     background-color: #1d1d1d;
     overflow: hidden;
     padding: 1.5em;
-    /* clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%); */
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
 }
 .video-wrapper video {
     width: 100%;
@@ -200,8 +201,8 @@ html, body {
 .socials .sub-col p, .sub-col span {
     position: relative;
     color: #fff;
-    /* transform: translateY(30px);
-    opacity: 0; */
+    transform: translateY(30px);
+    opacity: 0;
     text-transform: uppercase;
     font-family: var(--default-font);
     font-size: 12px;
@@ -241,7 +242,7 @@ html, body {
         font-size: 30px;
     }
     .video-wrapper {
-        padding: 0.3em; 
+        padding: 0.8em; 
     }
     .socials {
         width: 100%;
