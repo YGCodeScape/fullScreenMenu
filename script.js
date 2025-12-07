@@ -29,18 +29,94 @@ document.addEventListener("DOMContentLoaded", () => {
     splitTextIntoSpan(".header h1");
 
     menuToggle.addEventListener("click", () => {
-        if(isAnimating) return;
 
-        if(menuToggle.classList.contains("closed")) {
-            menuToggle.classList.remove("closed")
-            menuToggle.classList.add("opened")
-            isAnimating = true;
-        }
-        else {
+        if(isAnimating == false) {
             menuToggle.classList.remove("opened")
             menuToggle.classList.add("closed")
 
-            isAnimating = true
+            gsap.to(menu, {
+                clipPath : "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                ease: "hop",
+                duration: 1.5,
+                onComplete: () => {
+                    isAnimating = false
+                }
+            });
+
+            gsap.to(links, {
+                y: 0,
+                opacity: 1,
+                stagger: 0.1,
+                delay: 0.82,
+                duration: 1,
+                ease: "power3.out"
+            });
+
+            gsap.to(socialLinks, {
+                y: 0,
+                opacity: 1,
+                stagger: 0.05,
+                duration: 1,
+                ease: "power3.out",
+            });
+
+            gsap.to(".video-wrapper", {
+                clipPath : "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                ease: "hop",
+                duration: 1.5,
+                delay: 0.5,  
+            });
+
+            gsap.to(".header h1 span", {
+                rotateY: 0,
+                stagger: 0.05,
+                delay: 0.75,
+                duration: 1.5,
+                ease: "power3.out",
+            });
+
+            gsap.to(".header h1 span", {
+                y: 0,
+                scale: 1,
+                stagger: 0.05,
+                delay: 0.5,
+                duration: 1.5,
+                ease: "power4.out"
+            });
+           isAnimating = true;
+        }
+        else {
+            menuToggle.classList.remove("closed")
+            menuToggle.classList.add("opened")
+
+            gsap.to(menu, {
+                clipPath : "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+                ease: "hop",
+                duration: 1.5,
+                onComplete: () => {
+                    gsap.set(menu, {
+                       clipPath : "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+                    });
+                 gsap.set(links, {
+                    y: 30,
+                    opacity: 0
+                 })
+                 gsap.set(socialLinks, {
+                    y: 30,
+                    opacity: 0
+                 })
+                 gsap.set(".video-wrapper", {
+                     clipPath : "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+                 })
+                 gsap.set(".header h1 span", {
+                     y: 500,
+                     rotateY: 90,
+                     scale: 0.75,
+                 })
+                 isAnimating = false;
+                },
+            })
+               isAnimating = false
         }
 
     })
